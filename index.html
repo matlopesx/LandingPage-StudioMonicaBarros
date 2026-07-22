@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Studio Mônica Barros</title>
+    <!-- Favicon (Logo na aba) -->
+    <link rel="icon" type="image/png" href="images/Logo Monica .webp">
+    
+    <!-- Fontes do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Ícones Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
+    
+    <!-- Referência ao nosso arquivo CSS puro -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ================= META PIXEL CODE ================= -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    fbq('init', 'SEU_PIXEL_ID_AQUI'); 
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- ================= END META PIXEL CODE ================= -->
+</head>
+<body>
+
+    <!-- ================= HEADER PRINCIPAL ================= -->
+    <header class="header" id="main-header">
+        <div class="container header__inner">
+            <a href="#hero" class="header__logo">
+                <img src="images/Logo Monica .webp" alt="Mônica Barros Logo">
+            </a>
+            
+            <nav class="header__nav desktop-only">
+                <a href="#services" class="nav__link">Serviços</a>
+                <a href="#about" class="nav__link">Sobre</a>
+                <a href="#how-it-works" class="nav__link">Como funciona</a>
+                <a href="#faq" class="nav__link">Dúvidas</a>
+                <a href="https://wa.me/" class="btn btn--primary">Agendar avaliação</a>
+            </nav>
+
+            <button class="header__menu-btn mobile-only" id="mobile-menu-btn" aria-label="Abrir menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= MENU MOBILE ================= -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <aside class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__header">
+            <button class="mobile-menu__close" id="close-menu-btn">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <nav class="mobile-menu__nav">
+            <a href="#services" class="mobile-nav-link">Serviços</a>
+            <a href="#about" class="mobile-nav-link">Sobre</a>
+            <a href="#how-it-works" class="mobile-nav-link">Como funciona</a>
+            <a href="#faq" class="mobile-nav-link">Dúvidas</a>
+            <div class="mobile-menu__footer">
+                <a href="https://wa.me/" class="btn btn--primary btn--full">
+                    <span class="material-symbols-outlined">chat</span> Agendar avaliação
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+    <main>
+        <!-- ================= HERO SECTION ================= -->
+        <section id="hero" class="hero section">
+            <div class="hero__bg"></div>
+            <div class="container hero__inner">
+                <div class="hero__content reveal">
+                    <h1 class="hero__title">Especialista em sobrancelhas, micropigmentação e remoção a laser</h1>
+                    <p class="hero__text">Procedimentos personalizados para valorizar sua beleza, corrigir trabalhos antigos e recuperar sua autoestima com naturalidade e segurança.</p>
+                    <div class="hero__actions">
+                        <a href="https://wa.me/" class="btn btn--primary btn--large">
+                            <span class="material-symbols-outlined icon-fill">chat</span> Agendar avaliação
+                        </a>
+                        <a href="#services" class="btn btn--outline btn--large">Conhecer os serviços</a>
+                    </div>
+                </div>
+                
+                <div class="hero__image-wrapper reveal">
+                    <div class="hero__image-frame">
+                        <img src="images/FotoPrincipal.webp" alt="Mônica Barros Profissional" class="hero__image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SERVIÇOS ================= -->
+        <section id="services" class="services section bg-lightest">
+            <div class="container reveal">
+                <div class="section-header text-center">
+                    <span class="section-header__subtitle">Tratamentos Especializados</span>
+                    <h2 class="section-header__title">Serviços Oferecidos</h2>
+                </div>
+                
+                <div class="grid grid--4">
+                    <!-- Serviço 1 -->
+                    <article class="card">
+                        <div class="card__image-box">
+                            <img src="images/MicroLCardServiço.jpeg" alt="Micropigmentação Labial" class="card__img">
+                        </div>
+                        <h3 class="card__title">Micropigmentação Labial</h3>
+                        <ul class="card__list">
+                            <li><span class="material-symbols-outlined list-icon">check</span> Realce da cor e do contorno</li>
+                            <li><span class="material-symbols-outlined list-icon">check</span> Neutralização de lábios escurecidos</li>
+                            <li><span class="material-symbols-outlined list-icon">check</span> Resultado personalizado e natural</li>
+                        </ul>
+                        <div class="card__footer">
+                            <span class="card__tag">Procedimento Completo</span>
+                            <a href="https://wa.me/" class="btn btn--outline btn--full">Quero Agendar</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Serviço 2 (Destaque) -->
+                    <article class="card card--featured">
+                        <span class="badge">Destaque</span>
+                        <div class="card__image-box">
+                            <img src="images/MicroSCardServiço.jpeg" alt="Micropigmentação" class="card__img">
+                        </div>
+                        <h3 class="card__title">Micropigmentação</h3>
+                        <ul class="card__list">
+                            <li><span class="material-symbols-outlined list-icon">check</span> Microblading</li>
+                            <li><span class="material-symbols-outlined list-icon">check</span> Técnica shadow</li>
+                            <li><span class="material-symbols-outlined list-icon">check</span> Técnica mix</li>
+                        </ul>
+                        <div class="card__footer">
+                            <span class="card__tag">Procedimento Completo</span>
+                            <a href="https://wa.me/" class="btn btn--primary btn--full">Quero Agendar</a>
+                        </div>
+                    </article>
+
+                    <!-- Serviço 3 -->
+                    <article class="card">
+                        <div class="card__image-box">
+                            <img src="images/RemoçãoCardServiço.webp" alt="Remoção a laser" class="card__img">
+                        </div>
+                        <h3 class="card__title">Remoção a laser</h3>
+                        <ul class="card__list">
+                            <li><span class="material-symbols-outlined list-icon">check</span> Remoção total</li>
+                            <li><span class="material-symbols-outlined list-icon">check</span> Protocolo seguro</li>
+                            <li><span class="material-symbols-outlined list-icon">check</span> Preserva os pelos e deixa a pele íntegra</li>
+                        </ul>
+                        <div class="card__footer">
+                            <span class="card__tag">Procedimento Completo</span>
+                            <a href="https://wa.me/" class="btn btn--outline btn--full">Quero Agendar</a>
+                        </div>
+                    </article>
+
+                    <!-- Serviço 4 -->
+                    <article class="card">
+                        <div class="card__image-box">
+                            <img src="images/UnhasCardServiço.webp" alt="Unhas" class="card__img">
+                        </div>
+                        <h3 class="card__title">Unhas</h3>
+                        <ul class="card__list">
+                            <li><span class="material-symbols-outlined list-icon">check</span> Manicure e pedicure</li>
+                            <li><span class="material-symbols-outlined list-icon">check</span> Alongamento</li>
+                            <li><span class="material-symbols-outlined list-icon">check</span> Esmaltação em gel</li>
+                        </ul>
+                        <div class="card__footer">
+                            <span class="card__tag">Procedimento Completo</span>
+                            <a href="https://wa.me/" class="btn btn--outline btn--full">Quero Agendar</a>
+                        </div>
+                    </article>
+                </div>
+                
+        </section>
+
+       <!-- ================= GALERIA (Casos de Sucesso) ================= -->
+        <section id="gallery" class="gallery section bg-light">
+            <div class="container reveal">
+                <div class="section-header gallery__header">
+                    <div>
+                        <span class="section-header__subtitle">Resultados Comprovados</span>
+                        <h2 class="section-header__title">Antes e Depois</h2>
+                    </div>
+                    <p class="section-header__text">Casos reais de micropigmentação e remoções com tecnologia avançada, preservando a saúde da pele.</p>
+                </div>
+                
+                <div class="grid grid--3">
+                    <!-- Casos: Micropigmentação de Sobrancelha -->
+                    <div class="gallery__item">
+                        <div class="mini-slideshow">
+                            <img src="images/CasoMS1.webp" alt="Microblading Sobrancelha" class="mini-slideshow__slide active">
+                            <img src="images/CasoMS2.jpg" alt="Shadow Sobrancelha" class="mini-slideshow__slide">
+                            <img src="images/CasoMS3.webp" alt="Mix Sobrancelha" class="mini-slideshow__slide">
+                        </div>
+                        <p class="gallery__caption">Micropigmentação de Sobrancelha</p>
+                    </div>
+                    
+                    <!-- Casos: Micropigmentação Labial -->
+                    <div class="gallery__item">
+                        <div class="mini-slideshow">
+                            <img src="images/CasoML1.webp" alt="Micropigmentação Labial Antes e Depois 1" class="mini-slideshow__slide active">
+                            <img src="images/CasoML2.webp" alt="Micropigmentação Labial Antes e Depois 2" class="mini-slideshow__slide">
+                            <img src="images/CasoML3.webp" alt="Micropigmentação Labial Antes e Depois 3" class="mini-slideshow__slide">
+                        </div>
+                        <p class="gallery__caption">Micropigmentação Labial</p>
+                    </div>
+                    
+                    <!-- Casos: Remoção a Laser -->
+                    <div class="gallery__item">
+                        <div class="mini-slideshow">
+                            <img src="images/CasoRM1.webp" alt="Remoção a Laser Antes e Depois 1" class="mini-slideshow__slide active">
+                            <img src="images/CasoRM2.webp" alt="Remoção a Laser Antes e Depois 2" class="mini-slideshow__slide">
+                            <img src="images/CasoRM3.webp" alt="Remoção a Laser Antes e Depois 3" class="mini-slideshow__slide">
+                        </div>
+                        <p class="gallery__caption">Remoção a Laser</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= COMO FUNCIONA ================= -->
+        <section id="how-it-works" class="steps section bg-background">
+            <div class="container reveal">
+                <div class="section-header text-center">
+                    <span class="section-header__subtitle">O Caminho</span>
+                    <h2 class="section-header__title">Como Funciona o Processo</h2>
+                </div>
+                
+                <div class="grid grid--4 steps__grid">
+                    <div class="step">
+                        <div class="step__number">1</div>
+                        <h3 class="step__title">Fale pelo WhatsApp</h3>
+                        <p class="step__text">Entre em contato para tirar dúvidas, consultar valores e verificar os horários disponíveis.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">2</div>
+                        <h3 class="step__title">Avaliação personalizada</h3>
+                        <p class="step__text">Antes do procedimento, analiso seu caso, suas expectativas e as condições da pele ou da região que será tratada.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">3</div>
+                        <h3 class="step__title">Realização do procedimento</h3>
+                        <p class="step__text">O atendimento é realizado de forma individualizada, com atenção à higiene, segurança e aos detalhes de cada técnica.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">4</div>
+                        <h3 class="step__title">Cuidados e acompanhamento</h3>
+                        <p class="step__text">Após o atendimento, você recebe orientações. Quando indicado, fazemos acompanhamento para avaliar cicatrização e retoques.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SOBRE ================= -->
+        <section id="about" class="about section bg-light">
+            <div class="container grid grid--2 align-center">
+                <div class="about__content reveal">
+                    <div class="section-header">
+                        <span class="section-header__subtitle">Especialista</span>
+                        <h2 class="section-header__title">Autoridade Internacional</h2>
+                    </div>
+                    <div class="about__text">
+                        <p>Sou Mônica Barros, especialista em sobrancelhas e apaixonada por transformar olhares de forma natural, segura e personalizada.</p>
+                        <p>Atuo na área da beleza desde 2011 e sou especializada em micropigmentação desde 2015. Conquistei mais de 35 certificações em técnicas avançadas como microblading, shadow, labial e remoção a laser.</p>
+                        <p>Durante duas temporadas no Egito, atendi aproximadamente 1.800 clientes, levando minha técnica para um público internacional exigente.</p>
+                        <p>No Studio Mônica Barros, cada atendimento respeita os seus traços e personalidade, buscando resultados harmoniosos que elevam sua autoestima.</p>
+                    </div>
+                    
+                    <div class="about__features grid grid--2">
+                        <div class="feature-box">
+                            <span class="material-symbols-outlined feature-box__icon">verified</span>
+                            <h4 class="feature-box__title">Equipamento Próprio</h4>
+                            <p class="feature-box__text">Laser de última geração exclusivo para nossos pacientes.</p>
+                        </div>
+                        <div class="feature-box">
+                            <span class="material-symbols-outlined feature-box__icon">public</span>
+                            <h4 class="feature-box__title">Técnica Internacional</h4>
+                            <p class="feature-box__text">Protocolos baseados nos melhores centros do mundo.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about__carousel reveal">
+                    <div class="carousel" id="prof-carousel">
+                        <div class="carousel__track" id="prof-track">
+                            <div class="carousel__slide">
+                                <img src="images/Carrosel1.webp" alt="Mônica foto profissional">
+                            </div>
+                            <div class="carousel__slide">
+                                <img src="images/Carrosel2.webp" alt="Mônica Segurando Regua de sombrancelha">
+                            </div>
+                            <div class="carousel__slide">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn87zO_opmBc_n4p-SeZdJHYq7e3xzsbGRfKBN1c2U4tQ6pftfFHEqwkNdJ0yJ_j_q18ce_lDBaHTdBQp0JjHlXjydSdNcJ-neORArAp6iqFeigzdrshQ7cy1M4BJLKyEkYCgPbpMplHaNuxOrmLo_py28riurc7CMVzyEdNOfEMHWMYbNEsgZZNHJ-PG4VWamOCt4LlSySTOxsIilV6GNX1U4vjFW8sWUmHgLUiLOhLqNQc5rWgCraKjYOxxdSAkzB3oSewT3QQuB" alt="Monica no Egito">
+                            </div>
+                        </div>
+                        <div class="carousel__controls">
+                            <button class="carousel__btn" id="prev-btn"><span class="material-symbols-outlined">chevron_left</span></button>
+                            <button class="carousel__btn" id="next-btn"><span class="material-symbols-outlined">chevron_right</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQ (DÚVIDAS FREQUENTES) ================= -->
+        <section id="faq" class="faq section bg-lightest">
+            <div class="container reveal">
+                <div class="section-header text-center">
+                    <span class="section-header__subtitle">Suporte</span>
+                    <h2 class="section-header__title">Dúvidas Comuns</h2>
+                </div>
+                
+                <div class="grid grid--3 align-start">
+                    <!-- Coluna FAQ 1 -->
+                    <div class="faq__column">
+                        <h3 class="faq__column-title">Micropigmentação de Sobrancelhas</h3>
+                        <details class="faq-item">
+                            <summary class="faq-item__header">O resultado fica natural? <span class="material-symbols-outlined faq-item__icon">expand_more</span></summary>
+                            <div class="faq-item__body">Sim. O desenho e a técnica são escolhidos de acordo com seus traços, formato do rosto, quantidade de fios e resultado desejado.</div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-item__header">O procedimento dói? <span class="material-symbols-outlined faq-item__icon">expand_more</span></summary>
+                            <div class="faq-item__body">A sensibilidade varia de pessoa para pessoa. Durante o atendimento, são adotados cuidados para proporcionar mais conforto.</div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-item__header">Quanto tempo dura? <span class="material-symbols-outlined faq-item__icon">expand_more</span></summary>
+                            <div class="faq-item__body">A durabilidade varia conforme o tipo de pele, técnica utilizada, rotina de cuidados e hábitos pessoais.</div>
+                        </details>
+                    </div>
+                    
+                    <!-- Coluna FAQ 2 -->
+                    <div class="faq__column">
+                        <h3 class="faq__column-title">Micropigmentação Labial</h3>
+                        <details class="faq-item">
+                            <summary class="faq-item__header">Para que serve a micropigmentação labial? <span class="material-symbols-outlined faq-item__icon">expand_more</span></summary>
+                            <div class="faq-item__body">Ela ajuda a realçar a cor, definir o contorno, corrigir pequenas assimetrias e, quando indicado, neutralizar tonalidades mais escuras.</div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-item__header">O procedimento aumenta os lábios? <span class="material-symbols-outlined faq-item__icon">expand_more</span></summary>
+                            <div class="faq-item__body">Não. A micropigmentação não aumenta o volume. Ela trabalha a cor e a definição do contorno natural.</div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-item__header">Quanto tempo dura? <span class="material-symbols-outlined faq-item__icon">expand_more</span></summary>
+                            <div class="faq-item__body">A duração varia conforme a pele, os hábitos, os cuidados após o procedimento e a resposta individual do organismo.</div>
+                        </details>
+                    </div>
+
+                    <!-- Coluna FAQ 3 -->
+                    <div class="faq__column">
+                        <h3 class="faq__column-title">Remoção a Laser</h3>
+                        <details class="faq-item">
+                            <summary class="faq-item__header">Quantas sessões serão necessárias? <span class="material-symbols-outlined faq-item__icon">expand_more</span></summary>
+                            <div class="faq-item__body">Não existe um número igual para todas as pessoas. A quantidade depende da cor, profundidade, composição e saturação do pigmento, além da resposta da pele.</div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-item__header">O laser remove os pelos da sobrancelha? <span class="material-symbols-outlined faq-item__icon">expand_more</span></summary>
+                            <div class="faq-item__body">O equipamento é direcionado ao pigmento, mas alterações temporárias na coloração dos fios podem acontecer. Por isso, a avaliação e os parâmetros corretos são essenciais.</div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-item__header">Posso fazer uma nova micropigmentação depois? <span class="material-symbols-outlined faq-item__icon">expand_more</span></summary>
+                            <div class="faq-item__body">Sim, em muitos casos. Porém, é necessário aguardar a recuperação completa da pele e realizar uma nova avaliação.</div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CALL TO ACTION (CTA) ================= -->
+        <section class="cta-section section">
+            <div class="container cta-section__content reveal">
+                <h2 class="cta-section__title">Pronta para o seu novo começo?</h2>
+                <p class="cta-section__text">Agende sua avaliação agora e tire todas as suas dúvidas diretamente com quem realiza o procedimento.</p>
+                <a href="https://wa.me/" class="btn btn--white btn--large shadow">
+                    <span class="material-symbols-outlined">chat</span> Quero agendar
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container grid grid--3">
+            <div class="footer__col">
+                <div class="footer__brand">Mônica Barros</div>
+                <p class="footer__text">Especialista em remoção a laser e micropigmentação. Compromisso com sua beleza e segurança.</p>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__title">Navegação</h4>
+                <ul class="footer__nav">
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#gallery">Galeria</a></li>
+                    <li><a href="#faq">Dúvidas</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__title">Localização</h4>
+                <address class="footer__address">
+                    Avenida Itamarati 2325 sala 1<br>
+                    Parque Erasmo Assunção<br>
+                    Santo André - SP
+                </address>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="container">
+                <p>© 2026 Mônica Barros Estética. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= WHATSAPP FLOATING ================= -->
+    <a href="https://wa.me/" class="fab-whatsapp" title="Fale no WhatsApp" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.513-2.961-2.628-.086-.115-.718-.954-.718-1.817 0-.863.454-1.287.614-1.46.16-.173.346-.217.46-.217h.328c.115 0 .26-.043.404.303.144.346.49.1.533 1.154.043.086.072.187.014.303-.057.115-.115.187-.23.317-.115.13-.245.245-.346.36-.115.115-.23.245-.101.462.13.217.576.954 1.239 1.543.858.761 1.58.997 1.811 1.112.23.115.361.097.49-.057.13-.154.547-.635.692-.851.144-.216.288-.187.49-.115.202.072 1.282.605 1.503.715.22.11.366.164.42.254.054.09.054.519-.101.924z"></path></svg>
+    </a>
+
+    <!-- Referência ao nosso arquivo JS puro -->
+    <script src="script.js"></script>
+</body>
+</html>
