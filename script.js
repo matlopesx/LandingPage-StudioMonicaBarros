@@ -201,3 +201,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+/* ==========================================================================
+       2. HEADER FIXO (STICKY) E LOGO DINÂMICA
+       ========================================================================== */
+    const header = document.getElementById('main-header');
+    const logoImg = document.querySelector('.header__logo img');
+    
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.08)';
+                if (logoImg && window.innerWidth > 768) {
+                    logoImg.style.height = '75px'; 
+                }
+            } else {
+                header.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)';
+                if (logoImg && window.innerWidth > 768) {
+                    logoImg.style.height = '110px'; 
+                }
+            }
+        });
+    }
+
+    /* ==========================================================================
+       3. CONTROLE DO MENU MOBILE (GAVETA + OVERLAY)
+       ========================================================================== */
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function openMobileMenu() {
+        if (mobileMenu && menuOverlay) {
+            mobileMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            mobileMenu.setAttribute('aria-hidden', 'false');
+            menuOverlay.setAttribute('aria-hidden', 'false');
+            if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden'; // Trava o scroll da página ao fundo
+        }
+    }
+
+    function closeMobileMenu() {
+        if (mobileMenu && menuOverlay) {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            menuOverlay.setAttribute('aria-hidden', 'true');
+            if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = ''; // Libera o scroll da página
+        }
+    }
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+    }
+
+    if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', closeMobileMenu);
+    }
+
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', closeMobileMenu);
+    }
+
+    // Fecha a gaveta automaticamente quando a cliente clica em qualquer item
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
