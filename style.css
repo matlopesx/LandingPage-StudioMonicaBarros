@@ -1240,3 +1240,38 @@ img, svg {
 .contact-card--link:hover .contact-card__title {
     color: var(--clr-primary, #e60000);
 }
+/* ==========================================================================
+   AJUSTE DE CABEÇALHO COMPACTO NO MOBILE (PARA NÃO CORTAR A FOTO)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. Deixa a barra branca bem mais fina e discreta */
+    .header__inner {
+        padding-top: 0.25rem !important;
+        padding-bottom: 0.25rem !important;
+        min-height: 60px; /* Altura controlada */
+    }
+
+    /* 2. Reduz a logo para um tamanho elegante que não empurra a barra */
+    .header__logo img {
+        height: 50px !important; 
+        max-width: 150px;
+    }
+
+    /* 3. Ajusta o tamanho do botão hambúrguer para acompanhar a barra mais fina */
+    .header__menu-btn {
+        padding: 0.25rem;
+    }
+    
+    .header__menu-btn .material-symbols-outlined {
+        font-size: 28px;
+    }
+
+    /* 4. O SEGREDO: Empurra o topo da primeira seção para baixo, 
+          livrando a testa e o cabelo da Mônica do corte */
+    #hero, 
+    .hero, 
+    main > section:first-of-type {
+        margin-top: 65px !important; /* Desce a foto exatamente a altura do novo header */
+        padding-top: 1rem;
+    }
+}

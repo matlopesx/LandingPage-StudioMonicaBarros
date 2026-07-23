@@ -7,67 +7,102 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* ==========================================================================
-       1. MENU MOBILE
-       ========================================================================== */
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const closeBtn = document.getElementById('close-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    const overlay = document.getElementById('menu-overlay');
-    const navLinks = document.querySelectorAll('.mobile-nav-link');
+/* ==========================================================================
+   1. CONTROLE DEFINITIVO DO MENU MOBILE (GAVETA + OVERLAY + ACESSIBILIDADE)
+   ========================================================================== */
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const closeMenuBtn = document.getElementById('close-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuOverlay = document.getElementById('menu-overlay');
+const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-menu__link');
 
-    if (menuBtn && closeBtn && menu && overlay) {
-        const openMenu = () => {
-            menu.classList.add('open');
-            overlay.classList.add('active');
-            // Trava o scroll do fundo enquanto o menu está aberto
-            document.body.style.overflow = 'hidden'; 
-        };
+if (mobileMenuBtn && mobileMenu && menuOverlay) {
+    // Aplica o inert via JS ao carregar a página para evitar travamento inicial
+    mobileMenu.setAttribute('inert', '');
+    menuOverlay.setAttribute('inert', '');
 
-        const closeMenu = () => {
-            menu.classList.remove('open');
-            overlay.classList.remove('active');
-            // Libera o scroll do fundo
-            document.body.style.overflow = '';
-        };
-
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            openMenu();
-        });
+    const openMobileMenu = () => {
+        // Remove o bloqueio para a gaveta poder abrir e receber cliques
+        mobileMenu.removeAttribute('inert');
+        menuOverlay.removeAttribute('inert');
         
-        closeBtn.addEventListener('click', closeMenu);
-        overlay.addEventListener('click', closeMenu);
+        mobileMenu.classList.add('active', 'open');
+        menuOverlay.classList.add('active', 'open');
         
-        // Fecha o menu ao clicar em qualquer link
-        navLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        menuOverlay.setAttribute('aria-hidden', 'false');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
+    };
 
-        // Acessibilidade: fechar menu com a tecla ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && menu.classList.contains('open')) {
-                closeMenu();
-            }
-        });
+    const closeMobileMenu = () => {
+        // Tira o foco do botão de fechar ANTES de esconder para não dar erro no WAI-ARIA
+        if (mobileMenuBtn) {
+            mobileMenuBtn.focus();
+        } else if (document.activeElement) {
+            document.activeElement.blur();
+        }
+
+        mobileMenu.classList.remove('active', 'open');
+        menuOverlay.classList.remove('active', 'open');
+        
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        menuOverlay.setAttribute('aria-hidden', 'true');
+        
+        // Devolve o bloqueio quando o menu fecha
+        mobileMenu.setAttribute('inert', '');
+        menuOverlay.setAttribute('inert', '');
+        
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = ''; // Libera o scroll da página
+    };
+
+    mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openMobileMenu();
+    });
+
+    if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', closeMobileMenu);
     }
 
-    /* ==========================================================================
-       2. HEADER FIXO (STICKY) COM TRANSIÇÃO
-       ========================================================================== */
-    const header = document.getElementById('main-header');
-    
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                header.style.padding = '8px 0';
-                header.style.boxShadow = '0 4px 10px rgba(0,0,0,0.05)';
-            } else {
-                header.style.padding = '0';
-                header.style.boxShadow = 'none';
+    menuOverlay.addEventListener('click', closeMobileMenu);
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && (mobileMenu.classList.contains('active') || mobileMenu.classList.contains('open'))) {
+            closeMobileMenu();
+        }
+    });
+}
+/* ==========================================================================
+   2. HEADER FIXO (STICKY) COM TRANSIÇÃO E LOGO DINÂMICA UNIFICADOS
+   ========================================================================== */
+const header = document.getElementById('main-header');
+const logoImg = document.querySelector('.header__logo img');
+
+if (header) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+            // Efeito ao rolar a página
+            header.style.padding = '8px 0';
+            header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.08)';
+            if (logoImg && window.innerWidth > 768) {
+                logoImg.style.height = '75px'; 
             }
-        });
-    }
+        } else {
+            // Efeito no topo da página
+            header.style.padding = '0';
+            header.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)';
+            if (logoImg && window.innerWidth > 768) {
+                logoImg.style.height = '110px'; 
+            }
+        }
+    });
+}
 
     /* ==========================================================================
        3. ANIMAÇÕES DE SCROLL (REVEAL)
@@ -201,72 +236,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-/* ==========================================================================
-       2. HEADER FIXO (STICKY) E LOGO DINÂMICA
-       ========================================================================== */
-    const header = document.getElementById('main-header');
-    const logoImg = document.querySelector('.header__logo img');
-    
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.08)';
-                if (logoImg && window.innerWidth > 768) {
-                    logoImg.style.height = '75px'; 
-                }
-            } else {
-                header.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)';
-                if (logoImg && window.innerWidth > 768) {
-                    logoImg.style.height = '110px'; 
-                }
-            }
-        });
-    }
-
-    /* ==========================================================================
-       3. CONTROLE DO MENU MOBILE (GAVETA + OVERLAY)
-       ========================================================================== */
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const closeMenuBtn = document.getElementById('close-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuOverlay = document.getElementById('menu-overlay');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-    function openMobileMenu() {
-        if (mobileMenu && menuOverlay) {
-            mobileMenu.classList.add('active');
-            menuOverlay.classList.add('active');
-            mobileMenu.setAttribute('aria-hidden', 'false');
-            menuOverlay.setAttribute('aria-hidden', 'false');
-            if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
-            document.body.style.overflow = 'hidden'; // Trava o scroll da página ao fundo
-        }
-    }
-
-    function closeMobileMenu() {
-        if (mobileMenu && menuOverlay) {
-            mobileMenu.classList.remove('active');
-            menuOverlay.classList.remove('active');
-            mobileMenu.setAttribute('aria-hidden', 'true');
-            menuOverlay.setAttribute('aria-hidden', 'true');
-            if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = ''; // Libera o scroll da página
-        }
-    }
-
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', openMobileMenu);
-    }
-
-    if (closeMenuBtn) {
-        closeMenuBtn.addEventListener('click', closeMobileMenu);
-    }
-
-    if (menuOverlay) {
-        menuOverlay.addEventListener('click', closeMobileMenu);
-    }
-
-    // Fecha a gaveta automaticamente quando a cliente clica em qualquer item
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-    });
